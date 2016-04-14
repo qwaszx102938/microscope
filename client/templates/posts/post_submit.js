@@ -10,7 +10,7 @@ Template.postSubmit.events({
         var errors = validatePost(post);
         if (errors.title || errors.url)
             return Session.set('postSubmitErrors', errors);
-
+        //调用服务器提供的敏感操作方法。
         Meteor.call('postInsert', post, function (error, result) {
             // 显示错误信息并退出
             if (error)
